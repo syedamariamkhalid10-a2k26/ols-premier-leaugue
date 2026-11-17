@@ -1,0 +1,17 @@
+# systemd service (alternative to Docker). Copy to /etc/systemd/system/ then:
+#   systemctl daemon-reload && systemctl enable --now ols-premier-league
+[Unit]
+Description=OLS Premier League
+After=network.target
+
+[Service]
+Type=simple
+User=olspl
+WorkingDirectory=/opt/ols-premier-league
+EnvironmentFile=/opt/ols-premier-league/.env
+ExecStart=/usr/bin/node server/index.js
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

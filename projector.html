@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Auction · OLS Premier League</title>
+<meta name="theme-color" content="#1B2A4A">
+<link rel="icon" href="/img/favicon.png">
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/projector.css">
+</head>
+<body class="projector">
+<div class="pj">
+  <header class="pj-head">
+    <div class="pj-logo"><img src="/img/ols-logo.png" alt="O Levels School"></div>
+    <div class="pj-title"><div class="t1">OLS <span>Premier</span> League</div><div class="t2">Building Al-Qawiyy, Al-Ameen Muslims</div></div>
+    <div class="pj-live"><div class="live-badge off" id="live"><i></i><span>Live Auction</span></div><div class="pj-seq" id="seq"></div></div>
+  </header>
+  <section class="pj-stage" id="stage"></section>
+  <section class="pj-clubs" id="clubs"></section>
+</div>
+<div class="pj-tools"><button class="btn ghost sm" id="fs">Full screen (F)</button></div>
+<div class="pj-offline hidden" id="offline">Reconnecting to the auction server…</div>
+<script src="/socket.io/socket.io.min.js"></script>
+<script src="/js/core.js"></script>
+<script src="/js/projector.js"></script>
+</body>
+</html>

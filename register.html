@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Player Registration · OLS Premier League</title>
+<meta name="description" content="Register to play in the OLS Premier League at O Levels School.">
+<meta name="theme-color" content="#1B2A4A">
+<link rel="icon" href="/img/favicon.png">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<main class="auth-page">
+  <div class="auth-card reg-card">
+    <div class="head">
+      <a href="/"><img src="/img/ols-logo.png" alt="O Levels School"></a>
+      <h1 style="font-size:2rem;margin:0;text-transform:uppercase">Player Registration</h1>
+      <div class="small upper" style="letter-spacing:.12em;font-weight:700;color:var(--red-dark)">OLS Premier League · <span id="season"></span></div>
+    </div>
+    <div class="body">
+      <div id="closed" class="alert warn hidden">Registration is currently closed. Please check with the sports department.</div>
+      <form id="reg" novalidate>
+        <label class="field"><span>Full Name</span><input type="text" name="full_name" autocomplete="name" maxlength="80" required></label>
+        <label class="field"><span>Class / Grade</span><input type="text" name="class_grade" maxlength="30" placeholder="e.g. Grade 8 or O1" required></label>
+
+        <div class="field"><span>Photograph</span>
+          <label class="photo-drop" for="photo">
+            <img class="prev hidden" id="prev" alt="Photo preview"><span class="prev silhouette" id="ph"></span>
+            <span><b id="photoLabel">Add a clear photo of your face</b><br><small class="muted">Front-facing, good light, no filters. JPG or PNG.</small></span>
+          </label>
+          <input class="sr-only" type="file" id="photo" name="photo" accept="image/*" required>
+        </div>
+
+        <div class="field"><span>Preferred Playing Position</span>
+          <div class="pos-pick" id="p1"></div>
+        </div>
+        <div class="field"><span>Secondary Playing Position <em>(optional)</em></span>
+          <div class="pos-pick" id="p2"></div>
+        </div>
+
+        <div class="alert mb2" id="squadNote">Each club will have seven players in its squad, with five playing at a time and two available as substitutes. Final playing selection will be decided by the respective club captain.</div>
+        <label class="check mb2"><input type="checkbox" name="confirm" required><span>I confirm that the information provided is correct and understand that my participation is subject to school administration approval.</span></label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true">
+        <div id="err" class="alert err hidden" role="alert"></div>
+        <button class="btn red lg block mt2" type="submit" id="submit">Submit registration</button>
+        <p class="fee-note" id="fee"></p>
+      </form>
+      <div id="done" class="hidden center">
+        <div style="font-size:52px;line-height:1">✓</div>
+        <h2 style="text-transform:uppercase">Registration received</h2>
+        <p>Thank you, <b id="doneName"></b>. Your registration is <b>pending approval</b> by the school administration.</p>
+        <p class="muted small">Clubs are decided in the live auction — you do not choose a club.</p>
+        <a class="btn ghost" href="/">Back to OLS Premier League</a>
+      </div>
+    </div>
+  </div>
+  <p class="auth-foot">Your photograph is stored securely and only shown where the school allows.</p>
+</main>
+<script src="/js/core.js"></script>
+<script src="/js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="Al Fursan United crest">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+<path d="M60 3L114 17V64C114 101 90 126 60 138C30 126 6 101 6 64V17Z" fill="#C9D1DC"/>
+<path d="M60 10L107 22V64C107 96 86 118 60 129C34 118 13 96 13 64V22Z" fill="#1F4E9C"/>
+<path d="M60 10L107 22V64C107 96 86 118 60 129C34 118 13 96 13 64V22Z" fill="url(#g)"/>
+<g fill="#FFFFFF" transform="translate(0 4)"><path d="M42 104H84V96H80C79 82 86 72 86 58C86 40 73 30 57 30L53 24L48 33C40 37 35 45 32 55L41 60L50 56C50 63 45 69 43 76C41 83 45 90 47 96H42Z"/><circle cx="52" cy="44" r="3.2" fill="#1F4E9C"/></g>
+</svg>

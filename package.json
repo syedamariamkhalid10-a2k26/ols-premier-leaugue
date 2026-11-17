@@ -1,0 +1,41 @@
+{
+  "name": "ols-premier-league",
+  "version": "1.0.0",
+  "description": "OLS Premier League — O Levels School football club and live auction platform. Building Al-Qawiyy, Al-Ameen Muslims.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "backup": "node scripts/backup.js",
+    "reset-password": "node scripts/reset-password.js",
+    "demo-data": "node scripts/demo-data.js"
+  },
+  "author": "O Levels School",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.2.0",
+    "compression": "^1.8.2",
+    "cookie": "^2.0.2",
+    "exceljs": "^4.4.0",
+    "express": "^4.22.3",
+    "express-rate-limit": "^8.7.4",
+    "helmet": "^8.3.0",
+    "multer": "^2.5.0",
+    "pdfkit": "^0.20.2",
+    "sharp": "^0.35.5",
+    "socket.io": "^4.8.4"
+  },
+  "devDependencies": {
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "socket.io-client": "^4.8.4"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}

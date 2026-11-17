@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · OLS Premier League</title>
+<meta name="theme-color" content="#1B2A4A">
+<link rel="icon" href="/img/favicon.png">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<main class="auth-page">
+  <div class="auth-card">
+    <div class="head">
+      <img src="/img/ols-logo.png" alt="O Levels School">
+      <h1 style="font-size:1.9rem;margin:0;text-transform:uppercase">OLS Premier League</h1>
+      <div class="muted small upper" style="letter-spacing:.12em;font-weight:700;color:var(--red-dark)">Building Al-Qawiyy, Al-Ameen Muslims</div>
+    </div>
+    <div class="body">
+      <form id="login" autocomplete="on" novalidate>
+        <label class="field"><span>Username</span><input type="text" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" required></label>
+        <label class="field"><span>Password</span><input type="password" name="password" autocomplete="current-password" required></label>
+        <div id="err" class="alert err hidden" role="alert"></div>
+        <button class="btn red lg block mt2" type="submit">Sign in</button>
+      </form>
+      <form id="change" class="hidden" novalidate>
+        <div class="alert warn mb2">Please choose a new password before continuing.</div>
+        <label class="field"><span>Current password</span><input type="password" name="current" autocomplete="current-password" required></label>
+        <label class="field"><span>New password <em>(at least 8 characters)</em></span><input type="password" name="password" autocomplete="new-password" minlength="8" required></label>
+        <label class="field"><span>Confirm new password</span><input type="password" name="confirm" autocomplete="new-password" minlength="8" required></label>
+        <div id="err2" class="alert err hidden" role="alert"></div>
+        <button class="btn red lg block mt2" type="submit">Save and continue</button>
+      </form>
+    </div>
+  </div>
+  <p class="auth-foot">Accounts are issued by the OLS sports administration. <a href="/">Back to the league</a></p>
+</main>
+<script src="/js/core.js"></script>
+<script src="/js/login.js"></script>
+</body>
+</html>

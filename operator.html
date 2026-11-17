@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auction Operator · OLS Premier League</title>
+<meta name="theme-color" content="#1B2A4A">
+<link rel="icon" href="/img/favicon.png">
+<link rel="stylesheet" href="/css/app.css">
+<style>
+  .op { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(320px, 1fr); gap: 16px; padding: 16px; max-width: 1500px; margin: 0 auto; }
+  @media (max-width: 1000px) { .op { grid-template-columns: 1fr; padding: 10px; } }
+  .sess { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .lotbox { display: grid; grid-template-columns: 180px 1fr; gap: 18px; align-items: start; }
+  @media (max-width: 560px) { .lotbox { grid-template-columns: 1fr; } .lotbox .pcard { margin: 0 auto; } }
+  .lotbox h2 { font-size: 2.3rem; text-transform: uppercase; margin: 6px 0 4px; }
+  .bigbid { display: grid; grid-template-columns: 1fr 1fr 120px; gap: 10px; margin: 14px 0; }
+  .bigbid > div { background: var(--g50); border: 1px solid var(--g200); border-radius: 12px; padding: 10px 12px; }
+  .bigbid .l { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--g500); font-weight: 700; }
+  .bigbid .v { font: 800 2.4rem/1.05 var(--display); color: var(--navy); }
+  .bigbid .t { text-align: center; } .bigbid .t .v { font-size: 2.8rem; }
+  .bigbid .t.warn .v { color: #B26A00; } .bigbid .t.end .v { color: var(--red); }
+  .ctrl { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .ctrl .btn { min-height: 56px; font-size: 16px; white-space: normal; text-align: center; line-height: 1.15; }
+  .btn.sold { --b: var(--green); font: 800 22px/1 var(--display); letter-spacing: .08em; grid-column: 1 / -1; min-height: 68px; }
+  .btn.sold.pulse { animation: pulse 1s infinite; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(18,128,92,.25); } }
+  .qlist { max-height: 62vh; overflow-y: auto; }
+  .qrow { display: flex; align-items: center; gap: 10px; padding: 8px 6px; border-bottom: 1px solid var(--g100); }
+  .qrow:last-child { border-bottom: 0; }
+  .qrow b { display: block; line-height: 1.2; }
+  .bidlog { max-height: 220px; overflow-y: auto; font-size: 13px; }
+  .bidlog .r { display: flex; justify-content: space-between; padding: 6px 4px; border-bottom: 1px dashed var(--g100); gap: 8px; }
+  .bidlog .r.rejected { color: var(--g400); } .bidlog .r.voided { color: var(--g400); text-decoration: line-through; }
+  .statusline { font: 800 15px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; padding: 8px 12px; border-radius: 8px; display: inline-block; background: var(--g100); color: var(--g600); }
+  .statusline.open { background: var(--green); color: #fff; } .statusline.paused { background: #E59A1A; color: #fff; } .statusline.timeup { background: var(--red); color: #fff; }
+</style>
+</head>
+<body>
+<div id="top"></div>
+<div class="banner-off hidden" id="offline">⚠ Connection lost — reconnecting. Actions are disabled until the connection returns.</div>
+<main class="op">
+  <div class="stack">
+    <div class="card">
+      <div class="row between">
+        <div class="sess" id="sess"></div>
+        <div class="row"><a class="btn ghost sm" href="/projector" target="_blank" rel="noopener">Open projector ↗</a></div>
+      </div>
+    </div>
+    <div class="card" id="lot"></div>
+    <div class="card"><div class="card-head"><h3>Club budgets</h3><span class="small muted" id="placed"></span></div><div class="table-wrap" id="clubs"></div></div>
+  </div>
+  <div class="card">
+    <div class="tabs" id="qtabs"><button class="active" data-t="ready">Auction queue <span class="badge" id="nReady">0</span></button><button data-t="pending">Awaiting allocation <span class="badge amber" id="nPending">0</span></button><button data-t="recent">Recent</button></div>
+    <div id="qtools" class="toolbar"><input type="search" id="qsearch" placeholder="Search player…" style="flex:1"><button class="btn sm" id="nextBtn">Present next ▶</button></div>
+    <div class="qlist" id="queue"></div>
+  </div>
+</main>
+<script src="/socket.io/socket.io.min.js"></script>
+<script src="/js/core.js"></script>
+<script src="/js/operator.js"></script>
+</body>
+</html>

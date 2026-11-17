@@ -1,0 +1,15 @@
+# Run on any server with Docker:  docker compose up -d
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      PORT: 3000
+    volumes:
+      - ols-data:/data
+    ports:
+      - "127.0.0.1:3000:3000"   # Nginx (or Caddy) on the same server publishes it over HTTPS
+volumes:
+  ols-data:
